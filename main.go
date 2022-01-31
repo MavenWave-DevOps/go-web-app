@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-const port = ":8082"
+const port = ":8083"
 
 func newRouter() *mux.Router {
 	r := mux.NewRouter()
