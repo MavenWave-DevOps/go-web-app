@@ -79,7 +79,7 @@
 
 <footer>
     <p>Powered by ArgoCD</p>
-    <img src=https://storage.googleapis.com/public-assets-poc/argo.png alt="Argo logo">
+    <img src={{.BucketUrl}} alt="Argo logo">
 </footer>
 
 </body>
