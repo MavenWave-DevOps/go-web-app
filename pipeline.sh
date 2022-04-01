@@ -1,6 +1,6 @@
 #!/bin/zsh
 PROJECT_ID="prj-cicd-poc-shared-icce"
-VERSION=0.0.3-dev
+VERSION=0.0.5-dev
 
 gcloud config set project $PROJECT_ID
 
