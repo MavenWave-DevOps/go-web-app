@@ -2,22 +2,23 @@ package main
 
 import (
 	"fmt"
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"os"
 	"text/template"
-	"github.com/gorilla/mux"
 )
 
 const port = ":8083"
 
 type TemplateStuff struct {
-	BucketUrl string
+	BucketUrl  string
+	AppVersion string
 }
 
 type TemplateConfig struct {
-	TemplatePath string
-	BucketConfig TemplateStuff
+	TemplatePath    string
+	BucketConfig    TemplateStuff
 	DestinationPath string
 }
 
@@ -61,10 +62,14 @@ func (t TemplateConfig) ParseTemplate() {
 func main() {
 	fmt.Printf("Starting web app on %s", port)
 
+	bucketUrl := os.Getenv("BUCKET_URL")
+	appVersion := "0.0.7-dev"
+
 	templateConfig := TemplateConfig{
 		TemplatePath: "./templates/index.tpl",
 		BucketConfig: TemplateStuff{
-			BucketUrl: "https://storage.googleapis.com/public-assets-poc/argo.png",
+			BucketUrl:  bucketUrl,
+			AppVersion: appVersion,
 		},
 		DestinationPath: "./assets/index.html",
 	}
