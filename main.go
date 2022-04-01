@@ -63,7 +63,9 @@ func main() {
 	fmt.Printf("Starting web app on %s", port)
 
 	bucketUrl := os.Getenv("BUCKET_URL")
-	appVersion := "0.0.7-dev"
+	env := os.Getenv("ENV")
+
+	appVersion := fmt.Sprintf("0.0.7-%s", env)
 
 	templateConfig := TemplateConfig{
 		TemplatePath: "./templates/index.tpl",
