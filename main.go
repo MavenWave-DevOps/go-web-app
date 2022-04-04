@@ -65,7 +65,7 @@ func main() {
 	bucketUrl := os.Getenv("BUCKET_URL")
 	env := os.Getenv("ENV")
 
-	appVersion := fmt.Sprintf("0.0.10-%s", env)
+	appVersion := fmt.Sprintf("0.0.11-%s", env)
 
 	templateConfig := TemplateConfig{
 		TemplatePath: "./templates/index.tpl",
