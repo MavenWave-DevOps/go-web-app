@@ -1,6 +1,6 @@
 #!/bin/zsh
 PROJECT_ID="prj-cicd-poc-shared-icce"
-VERSION=0.0.11-staging
+VERSION=0.0.12-staging
 
 gcloud config set project $PROJECT_ID
 
