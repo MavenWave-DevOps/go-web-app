@@ -9,6 +9,7 @@ RUN go mod download
 
 COPY *.go ./
 COPY assets/ assets/
+COPY templates/ templates/
 
 RUN go build -o ./go-web-app
 

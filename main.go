@@ -2,12 +2,25 @@ package main
 
 import (
 	"fmt"
-	"net/http"
-
 	"github.com/gorilla/mux"
+	"log"
+	"net/http"
+	"os"
+	"text/template"
 )
 
 const port = ":8083"
+
+type TemplateStuff struct {
+	BucketUrl  string
+	AppVersion string
+}
+
+type TemplateConfig struct {
+	TemplatePath    string
+	BucketConfig    TemplateStuff
+	DestinationPath string
+}
 
 func newRouter() *mux.Router {
 	r := mux.NewRouter()
@@ -23,8 +36,47 @@ func newRouter() *mux.Router {
 	return r
 }
 
+func (t TemplateConfig) ParseTemplate() {
+	tpl, err := template.ParseFiles(t.TemplatePath)
+	if err != nil {
+		log.Print(err)
+		return
+	}
+
+	f, err := os.Create(t.DestinationPath)
+	if err != nil {
+		log.Println("create file: ", err)
+		return
+	}
+
+	err = tpl.Execute(f, t.BucketConfig)
+	if err != nil {
+		log.Print("execute: ", err)
+		return
+	}
+
+	f.Close()
+
+}
+
 func main() {
 	fmt.Printf("Starting web app on %s", port)
+
+	bucketUrl := os.Getenv("BUCKET_URL")
+	env := os.Getenv("ENV")
+
+	appVersion := fmt.Sprintf("0.0.12-%s", env)
+
+	templateConfig := TemplateConfig{
+		TemplatePath: "./templates/index.tpl",
+		BucketConfig: TemplateStuff{
+			BucketUrl:  bucketUrl,
+			AppVersion: appVersion,
+		},
+		DestinationPath: "./assets/index.html",
+	}
+
+	templateConfig.ParseTemplate()
 
 	r := newRouter()
 	http.ListenAndServe(port, r)
