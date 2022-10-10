@@ -3,3 +3,4 @@ resources:
   - demo-deployment.yaml
   - demo-svc.yaml
   - secrets.yaml
+  - namespace.yaml
