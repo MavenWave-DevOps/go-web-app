@@ -22,8 +22,6 @@ spec:
         - name: demo-cm
           configMap:
             name: demo-cm
-      imagePullSecrets:
-        - name: artifactory-apikey
       containers:
         - name: demo
           envFrom:
