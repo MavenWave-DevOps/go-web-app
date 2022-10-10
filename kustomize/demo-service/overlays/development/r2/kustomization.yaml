@@ -1,5 +1,6 @@
 resources:
 - ../../../base
+- sa.yaml
 patchesStrategicMerge:
 - cmPatch.yaml
 - deploymentPatch.yaml
