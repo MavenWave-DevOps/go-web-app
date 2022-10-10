@@ -30,7 +30,7 @@ spec:
                 optional: true
             - secretRef:
                 name: test-secret
-          image: artifactory.dentsplysirona.com/dpns-docker-local-sandbox/demo/demo-service/demo-service:v0.0.0-x
+          image: gcr.io/tony-sandbox-308422/mw-poc-go-webapp
           imagePullPolicy: Always
           ports:
             - name: http
