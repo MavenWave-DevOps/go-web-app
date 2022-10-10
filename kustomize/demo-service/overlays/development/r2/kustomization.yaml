@@ -1,0 +1,8 @@
+resources:
+- ../../../base/main
+patchesStrategicMerge:
+- cmPatch.yaml
+- deploymentPatch.yaml
+images:
+- name: gcr.io/tony-sandbox-308422/mw-poc-go-webapp
+  newTag: 0.1.0

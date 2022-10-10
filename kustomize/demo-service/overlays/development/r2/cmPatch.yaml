@@ -1,0 +1,9 @@
+#KPT1
+apiVersion: v1
+kind: ConfigMap
+metadata: # kpt-merge: demo/demo-cm
+  name: demo-cm
+  namespace: demo
+data:
+  PORT: "8083"
+  MARKET_REGION: "r2"

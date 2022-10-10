@@ -1,0 +1,5 @@
+resources:
+  - demo-configmap.yaml
+  - demo-deployment.yaml
+  - demo-svc.yaml
+  - secrets.yaml

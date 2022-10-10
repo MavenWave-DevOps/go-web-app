@@ -1,0 +1,8 @@
+resources:
+- ../../../base/main
+patchesStrategicMerge:
+- cmPatch.yaml
+- deploymentPatch.yaml
+images:
+- name: artifactory.dentsplysirona.com/dpns-docker-local-sandbox/demo/demo-service/demo-service
+  newTag: 0.0.3-c6db984331a445223c327696cc381f75d1821075

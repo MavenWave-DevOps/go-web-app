@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -57,5 +58,7 @@ func CreatetodoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello from Maven Wave")
+	if _, err := fmt.Fprintf(w, "Hello from Maven Wave"); err!=nil {
+		log.Fatal(err)
+	}
 }

@@ -1,0 +1,9 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: # kpt-merge: demo/demo
+  name: demo
+  namespace: demo
+spec:
+  template:
+    spec:
+      serviceAccountName: demo-testing
